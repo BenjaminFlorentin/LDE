@@ -9,7 +9,7 @@
 
 ## Version
 
-- Last version : `30-10-2017 16h50`
+- Last version : `01-11-2017 19h`
 
 - `13-10-2017 8h59` : 1er versionning
 - `30-10-2017 16h50` : 
@@ -17,6 +17,13 @@
  - correction des liens (img, script, etc...) : fait
  - pb : le chemin 'Ben/' renvoie toujours vers fr
  - vérifier l'ajout de la classe 'drapeau...' au clic sur une langue
+- `01-11-2017 19h` : 
+ - vérifier l'ajout de la classe 'drapeau...' au clic sur une langue : fait
+ - gestion de redirection après le choix de la langue : fait
+ - footer : en cours
+ - récupèrer les icones (icones, css, js) des réseaux sociaux du site openAudit pour le footer
+ - ajouter le logo du site
+
 </xmp>
 <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
 </html>

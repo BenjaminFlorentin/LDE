@@ -2,6 +2,7 @@
 // Fichier appelé au chargement de la page dans le but d'exécuter certaines tâches, fonctions, etc....
 //----------------------------------------------------------------------------------------------------
 
+
 //----------------------------------------------------------------------------------------------------
 // Variables utilisées pour plusieurs fonctions
 //----------------------------------------------------------------------------------------------------
@@ -69,5 +70,8 @@ function setLangue(){
 		}else{
 			sessionStorage.setItem('langue', "en");
 		} 
+	} else {
+		// on va ajouter la classe 'drapeau-actif' sur la langue choisie
+		$("#" + sessionStorage.langue).parent().addClass('drapeau-actif');
 	}
 }

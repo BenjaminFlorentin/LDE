@@ -34,10 +34,8 @@ function changeTranslate(page)
 	i =0;
 	
 	// parcourt des langues
-	console.log(nbLang);
-
 	$('.lang > a').each(function(){
-		console.log($(this));
+
 		// au clique sur le drapeau anglais
 		$(this).on("click", function(e){
 
@@ -45,69 +43,16 @@ function changeTranslate(page)
 			e.preventDefault();
 
 			// si la langue n'est pas déjà en englais
-			if(!($(this).hasClass('drapeau-actif'))){
+			if(!($(this).parent().hasClass('drapeau-actif'))){
 
 				// on sauvegarde le choix en session
 				sessionStorage.setItem('langue', $(this).attr('id'));
-
-				// on enlève la classe actif sur l'autre drapeau
-				$('.lang > a').removeClass('drapeau-actif');
-
-				// on met le drapeau cliqué en actif
-				$(this).addClass('drapeau-actif');
-				
+	
 				// on traduit en anglais
 				translate(page, $(this).attr('id'));
 			}
 		});
 	});
-	
-	// A FAIRE
-
-	/*// au clique sur le drapeau anglais
-	$('#en').on("click", function(e){
-
-		// pas de redirection
-		e.preventDefault();
-
-		// si la langue n'est pas déjà en englais
-		if(!($(this).hasClass('drapeau-actif'))){
-
-			// on sauvegarde le choix en session
-			sessionStorage.setItem('langue', 'eng');
-
-			// on met le drapeau cliqué en actif
-			$("#en").addClass('drapeau-actif');
-
-			// on enlève la classe actif sur l'autre drapeau
-			$("#fr").removeClass('drapeau-actif');
-			
-			// on traduit en anglais
-			translate(page, "en");
-		}
-	});*/
-
-	/*$('#fr').on("click", function(e){
-		
-		// pas de redirection
-		e.preventDefault();
-
-		// si la langue n'est pas déjà en francais
-		if(!($(this).hasClass('drapeau-actif'))){
-
-			// on sauvegarde le choix en session
-			sessionStorage.setItem('langue', 'fr');
-
-			// on met le drapeau cliqué en actif
-			$("#fr").addClass('drapeau-actif');
-
-			// on enlève la classe actif sur l'autre drapeau
-			$("#en").removeClass('drapeau-actif');
-			
-			// on traduit en francais
-			translate(page, "fr");
-		}
-	});*/
 }
 
 

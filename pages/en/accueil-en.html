@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head>
-	<title id="titlePage">Ben | Home</title>
+	<title id="titlePage">Laurence Dog'Educ | Home</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -26,74 +26,91 @@
 </head>
 <body onload="init('accueil.html')">
 
-	<!-- Barre de navigation -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: 0px 5px 0px 5px">
-		<a class="navbar-brand" href="#" id="home" title="accueil">Ben</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+	<header style="background-color: #ccc">
+		<!-- Barre de navigation -->
+		<nav class="navbar navbar-expand-lg" style="padding: 0px 5px 0px 5px;background-color: black">
+			<a class="navbar-brand" href="#" id="home" title="accueil">Laurence Dog'Educ</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<!-- <li class="nav-item">
-					<a class="nav-link" id="link" href="#">Link</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link disabled" href="#">Disabled</a>
-				</li> -->
-			</ul>
-			<ul class="navbar-nav my-2 my-lg-0">
-				<li class="nav-item lang">
-					<a href="#" alt="Langage" id="en">En</a>
-				</li>
-				<li class="nav-item">|</li>
-				<li class="nav-item lang">
-					<a href="#" alt="Langage" id="fr">Fr</a>
-				</li>
-				<li class="nav-item dropdown" id="drpdwnHover">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" title="Utilitaire" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-cog" aria-hidden="true"></i>
-					</a>
-					<div class="dropdown-menu" id="drpdwnTgt" style="right: 0;left: auto;margin: 0;padding:0;" aria-labelledby="navbarDropdownMenuLink">
-						<div class="container" style="padding: 0px">
-							<div class="col-6 hover" style="float: left;">
-								<a href="#" id="gmail" title="Gmail"><img alt="logo_gmail" src="../../img/google-product-logos/logo_gmail_64px.png" style="max-width: 50px"></a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<!-- <li class="nav-item">
+						<a class="nav-link" id="link" href="#">Link</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="#">Disabled</a>
+					</li> -->
+				</ul>
+				<ul class="navbar-nav my-2 my-lg-0">
+					<li class="nav-item lang" style="padding: .5rem">
+						<a href="#" alt="Langage" id="en"><img class="rounded" style="width:50px" src="../../img/en.jpg" title="En"></a>
+					</li>
+					<li class="nav-item" style="padding: .5rem 0 .5rem 0">|</li>
+					<li class="nav-item lang" style="padding: .5rem">
+						<a href="#" alt="Langage" id="fr"><img class="rounded" style="width:50px" src="../../img/fr.png" title="Fr"></a>
+					</li>
+					<li class="nav-item dropdown" id="drpdwnHover">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" title="Utilitaire" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-cog" aria-hidden="true"></i>
+						</a>
+						<div class="dropdown-menu" id="drpdwnTgt" style="right: 0;left: auto;margin: 0;padding:0;" aria-labelledby="navbarDropdownMenuLink">
+							<div class="container" style="padding: 0px">
+								<div class="col-6 hover" style="float: left;">
+									<a href="#" id="gmail" title="Gmail"><img alt="logo_gmail" src="../../img/google-product-logos/logo_gmail_64px.png" style="max-width: 50px"></a>
+								</div>
+								<div class="col-6 hover" style="float: left;">
+									<a href="#" id="drive" title="Drive"><img alt="logo_drive" src="../../img/google-product-logos/logo_drive_64px.png" style="max-width: 50px"></a>
+								</div>
 							</div>
-							<div class="col-6 hover" style="float: left;">
-								<a href="#" id="drive" title="Drive"><img alt="logo_drive" src="../../img/google-product-logos/logo_drive_64px.png" style="max-width: 50px"></a>
+							<div class="dropdown-divider" style="width: 100%;margin:0"></div>
+							<div class="container" style="padding: 0px">
+								<div class="col-6 hover" style="float: left;">
+									<a href="#" title="Gmail"><img alt="logo_gmail" src="../../img/google-product-logos/logo_gmail_64px.png" style="max-width: 50px"></a>
+								</div>
+								<div class="col-6 hover" style="float: left;">
+									<a href="#" title="Drive"><img alt="logo_drive" src="../../img/google-product-logos/logo_drive_64px.png" style="max-width: 50px"></a>
+								</div>
 							</div>
 						</div>
-						<div class="dropdown-divider" style="width: 100%;margin:0"></div>
-						<div class="container" style="padding: 0px">
-							<div class="col-6 hover" style="float: left;">
-								<a href="#" title="Gmail"><img alt="logo_gmail" src="../../img/google-product-logos/logo_gmail_64px.png" style="max-width: 50px"></a>
-							</div>
-							<div class="col-6 hover" style="float: left;">
-								<a href="#" title="Drive"><img alt="logo_drive" src="../../img/google-product-logos/logo_drive_64px.png" style="max-width: 50px"></a>
-							</div>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</nav>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
+	<!-- Body -->
 	<div class="container">
-		<div class="google text-center" style="margin-top:150px">
-			<!-- SiteSearch Google --> 
-			<form action="https://www.florentin-benjamin.ovh/Ben/searchGoogle.html" id="cse-search-box">
-				<div>
-					<input type="hidden" name="cx" value="partner-pub-7251150894597704:nz8345-k1u9"> 
-					<input type="hidden" name="cof" value="FORID:9"> 
-					<input type="hidden" name="ie" value="ISO-8859-1"> 
-					<input name="sitesearch" value="www.florentin-benjamin.ovh" type="hidden"> 
-					<input type="text" name="q" size="31"> 
-					<input type="submit" name="sa" value="Rechercher"> 
-				</div> 
-				<script type="text/javascript" src="https://www.google.com/coop/cse/brand?form=cse-search-box&lang=fr"></script> 
-			</form> 
-			<!-- SiteSearch Google -->
+		<div class="col-md-12">
+			<h1 class="text-center">Laurence Dog'Educ</h1>
+			<h3 class="text-center">Educatrice - Comportementaliste canin</h3>
 		</div>
 	</div>
+
+	<footer style="background-color: black;color:#ddd;position: absolute;width: 100%;bottom: 0;">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2 class="text-center">Contact</h2>
+					<ul class="list-unstyled">
+						<li>06103432343</li>
+						<li>14 route du Marabout</li>
+						<li>57270, Richemont, FRANCE</li>
+					</ul>
+				</div>
+				<div class="col">
+					<h2 class="text-center">Suivez nous !</h2>
+					<ul class="list-inline text-center">
+						<li>
+							<a href="https://www.facebook.com/pages/Laurence-Dog-%C3%A9duc/1164692700328779?timeline_context_item_type=intro_card_work&timeline_context_item_source=1105219965&pnref=lhc" id="lienFb" target="_blank" title="Laurence DOG'EDUC">
+								<i class="fa fa-facebook-official fa-2x" aria-hidden="true" id="fb"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 </body></html>

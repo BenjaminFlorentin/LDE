@@ -2,20 +2,18 @@
 // Fichier appelé au chargement de la page dans le but de définir les fonctions
 //----------------------------------------------------------------------------------------------------
 
+
 //----------------------------------------------------------------------------------------------------
 // Fonction permettant de traduire dans la langue choisie le contenu du site internet
 // "id_page" (varchar) nom de la page courante
 // "langage" (varchar) langage choisie
 //----------------------------------------------------------------------------------------------------
-function translate(id_page, langage)
-{
+
+function translate(id_page, langage){
 	// si le langage est choisie
 	if(langage == null){
 		langage = navigator.browserLanguage || navigator.language;
 	}
-
-	// on ajoute la classe actif sur le drapeau correspondant
-	$("#" + langage).addClass('drapeau-actif');
 
 	// on modifie la langue dans la session
 	sessionStorage.setItem('langue', langage);

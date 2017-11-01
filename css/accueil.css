@@ -5,11 +5,13 @@
 /***** NAVBAR *****/
 
 /* hover des liens dans la barre de navigation */
-.navbar-light .navbar-nav > li:hover { 
+.navbar-nav > li:hover { 
 	background-color: #ddd; 
 	color: rgba(0, 0, 0, 0.7);
 }
 
+/* langue selected */
+.drapeau-actif { background-color: #ddd; }
 
 
 
@@ -18,7 +20,8 @@
 
 
 /* Lien */
-a:hover { background-color: #ddd;  }
+a:hover { background-color: #ddd; text-decoration: none;  }
+
 
 
 

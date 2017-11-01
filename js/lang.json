@@ -1,23 +1,12 @@
 {
 	"accueil.html" : {
 		"titlePage" : {
-			"fr" : "Ben | Accueil",
-			"en" : "Ben | Home"
+			"fr" : "Laurence Dog'Educ | Accueil",
+			"en" : "Laurence Dog'Educ | Home"
 		},
 		"home" : {
-			"fr" : "Ben",
-			"en" : "Ben"
-		}
-	},
-
-	"searchGoogle.html" : {
-		"titlePage" : {
-			"fr" : "Ben | Recherche Google",
-			"en" : "Ben | Search Google"
-		},
-		"home" : {
-			"fr" : "Ben",
-			"en" : "Ben"
+			"fr" : "Laurence Dog'Educ",
+			"en" : "Laurence Dog'Educ"
 		}
 	}
 }
