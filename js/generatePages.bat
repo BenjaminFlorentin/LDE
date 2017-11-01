@@ -1,0 +1,3 @@
+node genPage.js
+
+pause

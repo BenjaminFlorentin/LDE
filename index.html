@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title></title>
+	
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+// Ce fichier permet d'effectuer une redirection vers la page d'accueil dans la langue du navigateur
+
+
+// test langue déjà défnie
+var language = "";
+
+if(sessionStorage.langue){
+	language  = sessionStorage.langue;
+} else {
+	if(navigator.browserLanguage){
+	 language = navigator.browserLanguage;
+	}else{
+	 language = navigator.language;
+	}
+
+	if(language.indexOf('fr') > -1){
+		sessionStorage.setItem('langue', "fr");
+		language = "fr";
+		$("title").text("Ben | Accueil");
+	}else{
+		sessionStorage.setItem('langue', "en");
+		language = "en";
+		$("title").text("Ben | Home");
+	} 
+
+	$("html").attr("lang", language);
+}
+
+// redirection vers la page d'accueil traduit dans la langue de l'utilisateur
+$(location).attr("href", "pages/" + language + "/accueil-" + language + ".html");
+</script>
+</html>
