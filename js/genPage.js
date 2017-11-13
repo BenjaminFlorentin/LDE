@@ -4,18 +4,17 @@ $ = require('jquery'), i = 0, lLang = 0, j = 0, lPgs = 0, buf = "", langueSelect
 data = "", readStream = "", filePtr = {}, fileBuffer = {}, buffer = new Buffer(4096),
 
 // variable contenant les langues dans lequelles seront traduient la pages html
-langue = [ "fr", "en"],
+langue = ["fr", "en"],
 
 // variable contenant le nom des pages à traduire
-pages = [ "accueil"],
+pages = ["accueil", "contact"],
 
 // variables contenant l'id des inputs
-lstInput = [];
+lstInput = ["iptFmCtc"];
 
 
 // on parcourt les langues
 for(i, lLang = langue.length; i < lLang; i++){
-
 	// on réinitialise j
 	j = 0;
 

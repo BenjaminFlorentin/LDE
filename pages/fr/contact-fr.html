@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title id="titlePage"></title>
+<!DOCTYPE html><html lang="fr"><head>
+	<title id="titlePage">Laurence Dog' Educ | Contact</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="../../font-awesome-4.7.0/css/font-awesome.css">
 
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../../css/accueil.css">
+	<link rel="stylesheet" type="text/css" href="../../css/contact.css">
 
 	<!-- JS -->
 	<script src="../../js/fct.js"></script>
@@ -26,12 +24,12 @@
 	<script src="../../js/onHover.js"></script>
 	<script src="../../js/onLoad.js"></script>
 </head>
-<body onload="init('accueil.html')">
+<body onload="init('contact.html')">
 
 	<header>
 		<!-- Barre de navigation -->
 		<nav class="navbar navbar-expand-lg" style="padding: 0px 5px 0px 5px;background-color: #A9A9A9">
-			<a class="navbar-brand" href="#" id="home" title="accueil"></a>
+			<a class="navbar-brand" href="#" id="home" title="accueil">Laurence Dog' Educ</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -47,11 +45,11 @@
 				</ul>
 				<ul class="navbar-nav my-2 my-lg-0">
 					<li class="nav-item lang" style="padding: .5rem">
-						<a href="#" alt="Langage" id="en"><img class="rounded" style="width:50px" src="../../img/en.jpg" title="En"/></a>
+						<a href="#" alt="Langage" id="en"><img class="rounded" style="width:50px" src="../../img/en.jpg" title="En"></a>
 					</li>
 					<li class="nav-item" style="padding: .5rem 0 .5rem 0">|</li>
 					<li class="nav-item lang" style="padding: .5rem">
-						<a href="#" alt="Langage" id="fr"><img class="rounded" style="width:50px"  src="../../img/fr.png" title="Fr"/></a>
+						<a href="#" alt="Langage" id="fr"><img class="rounded" style="width:50px" src="../../img/fr.png" title="Fr"></a>
 					</li>
 					<li class="nav-item dropdown" id="drpdwnHover">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" title="Utilitaire" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,8 +83,26 @@
 	<!-- Body -->
 	<div class="container">
 		<div class="col-md-12">
-			<h1 class="text-center" id="titreAcc"></h1>
-			<h3 class="text-center" id="ssTitreAcc"></h3>
+			<h1 class="text-center" id="titreCtc">Contact</h1>
+			<form class="form-horizontal" id="fmCtc">
+				<div class="form-group">
+					<label for="nom" id="fmNom">Nom</label>
+					<input type="text" class="form-control" id="nom" placeholder="Nom" required="required">
+				</div>
+				<div class="form-group">
+					<label for="prenom" id="fmPnm">Prénom</label>
+					<input type="text" class="form-control" id="prenom" placeholder="Prénom" required="required">
+				</div>
+				<div class="form-group">
+					<label for="email" id="fmMail">E-mail</label>
+					<input type="mail" class="form-control" id="email" placeholder="E-mail" required="required">
+				</div>
+				<div class="form-group">
+					<label for="msg" id="fmMsg">Message</label>
+					<textarea rows="7" class="form-control" id="msg" required="required"></textarea>
+				</div>
+				<input type="submit" class="btn btn-success" id="iptFmCtc" value="Envoyez">
+			</form>
 		</div>
 	</div>
 
@@ -94,18 +110,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="text-center" id="ft_ctc"></h2>
+					<h2 class="text-center" id="ft_ctc">Contact</h2>
 					<ul class="list-unstyled">
-						<li id="ft_ctc_num"></li>
-						<li id="ft_ctc_adr"></li>
-						<li id="ft_ctc_adr_cplt"></li>
+						<li id="ft_ctc_num">06.10.34.32.43</li>
+						<li id="ft_ctc_adr">14 route du Marabout</li>
+						<li id="ft_ctc_adr_cplt">57270, Richemont, FRANCE</li>
 					</ul>
 				</div>
 				<div class="col">
-					<h2 class="text-center" id="ft_flw"></h2>
+					<h2 class="text-center" id="ft_flw">Suivez-nous !</h2>
 					<ul class="list-inline text-center">
 						<li>
-							<a href="https://www.facebook.com/pages/Laurence-Dog-%C3%A9duc/1164692700328779?timeline_context_item_type=intro_card_work&amp;timeline_context_item_source=1105219965&amp;pnref=lhc" id="lienFb" target="_blank" title="Laurence DOG'EDUC">
+							<a href="https://www.facebook.com/pages/Laurence-Dog-%C3%A9duc/1164692700328779?timeline_context_item_type=intro_card_work&timeline_context_item_source=1105219965&pnref=lhc" id="lienFb" target="_blank" title="Laurence DOG'EDUC">
 								<i class="fa fa-facebook-official fa-2x" aria-hidden="true" id="fb"></i>
 							</a>
 						</li>
@@ -114,5 +130,5 @@
 			</div>
 		</div>
 	</footer>
-</body>
-</html>
+
+</body></html>

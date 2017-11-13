@@ -23,6 +23,11 @@
  - footer : en cours
  - récupèrer les icones (icones, css, js) des réseaux sociaux du site openAudit pour le footer
  - ajouter le logo du site
+- `13-11-2017 19h` : 
+ - footer : en cours
+ - ajouter le logo du site
+ - vérifier l'envoi de mail
+ - ajouter un menu sur la gauche suivant la page
 
 </xmp>
 <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>

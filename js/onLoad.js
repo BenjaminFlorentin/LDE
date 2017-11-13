@@ -17,6 +17,11 @@ pgs = {
 		'init' : initAcc,
 		'eClick' : clickAcc,
 		'eHover' : hoverAcc
+	},
+	"contact.html" : {
+		'init' : initCtc,
+		'eClick' : clickCtc,
+		'eHover' : hoverCtc
 	}
 };
 
@@ -45,6 +50,9 @@ function init(id) {
 
 	// gestion du click sur les boutons de traduction
 	changeTranslate(id);
+
+	// initialisation des fonctions d'évènement [click, hover]
+	clickLayHome();
 }
 
 
@@ -53,6 +61,13 @@ function init(id) {
 //----------------------------------------------------------------------------------------------------
 
 function initAcc() {
+}
+
+//----------------------------------------------------------------------------------------------------
+// Fonction permettant d'initialiser la page [contact.html]
+//----------------------------------------------------------------------------------------------------
+
+function initCtc() {
 }
 
 //----------------------------------------------------------------------------------------------------

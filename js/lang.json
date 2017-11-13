@@ -1,12 +1,95 @@
 {
 	"accueil.html" : {
 		"titlePage" : {
-			"fr" : "Laurence Dog'Educ | Accueil",
-			"en" : "Laurence Dog'Educ | Home"
+			"fr" : "Laurence Dog' Educ | Accueil",
+			"en" : "Laurence Dog' Educ | Home"
 		},
 		"home" : {
-			"fr" : "Laurence Dog'Educ",
-			"en" : "Laurence Dog'Educ"
+			"fr" : "Laurence Dog' Educ",
+			"en" : "Laurence Dog' Educ"
+		},
+		"titreAcc" : {
+			"fr" : "Laurence Dog' Educ",
+			"en" : "Laurence Dog' Educ"
+		},
+		"ssTitreAcc" : {
+			"fr" : "Educatrice - Comportementaliste canin",
+			"en" : "Educatrice - Comportementaliste canin"
+		},
+		"ft_ctc" : {
+			"fr" : "Contact",
+			"en" : "Contact"
+		},
+		"ft_ctc_num" : {
+			"fr" : "06.10.34.32.43",
+			"en" : "06.10.34.32.43"
+		},
+		"ft_ctc_adr" : {
+			"fr" : "14 route du Marabout",
+			"en" : "14 route du Marabout"
+		},
+		"ft_ctc_adr_cplt" : {
+			"fr" : "57270, Richemont, FRANCE",
+			"en" : "57270, Richemont, FRANCE"
+		},
+		"ft_flw" : {
+			"fr" : "Suivez-nous !",
+			"en" : "Follow us !"
+		}
+	},
+
+	"contact.html" : {
+		"titlePage" : {
+			"fr" : "Laurence Dog' Educ | Contact",
+			"en" : "Laurence Dog' Educ | Contact"
+		},
+		"home" : {
+			"fr" : "Laurence Dog' Educ",
+			"en" : "Laurence Dog' Educ"
+		},
+		"titreCtc" : {
+			"fr" : "Contact",
+			"en" : "Contact"
+		},
+		"fmNom" : {
+			"fr" : "Nom",
+			"en" : "Lastname"
+		},
+		"fmPnm" : {
+			"fr" : "Prénom",
+			"en" : "Firstname"
+		},
+		"fmMail" : {
+			"fr" : "E-mail",
+			"en" : "E-mail"
+		},
+		"fmMsg" : {
+			"fr" : "Message",
+			"en" : "Message"
+		},
+		"iptFmCtc" : {
+			"fr" : "Envoyez",
+			"en" : "Envoyez"
+		},
+		"ft_ctc" : {
+			"fr" : "Contact",
+			"en" : "Contact"
+		},
+		"ft_ctc_num" : {
+			"fr" : "06.10.34.32.43",
+			"en" : "06.10.34.32.43"
+		},
+		"ft_ctc_adr" : {
+			"fr" : "14 route du Marabout",
+			"en" : "14 route du Marabout"
+		},
+		"ft_ctc_adr_cplt" : {
+			"fr" : "57270, Richemont, FRANCE",
+			"en" : "57270, Richemont, FRANCE"
+		},
+		"ft_flw" : {
+			"fr" : "Suivez-nous !",
+			"en" : "Follow us !"
 		}
 	}
 }

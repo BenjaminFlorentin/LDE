@@ -22,6 +22,9 @@
 /* Lien */
 a:hover { background-color: #ddd; text-decoration: none;  }
 
+/* hover sur l'icône Facebook */
+#lienFb:hover { background-color: inherit; }
+
 
 
 

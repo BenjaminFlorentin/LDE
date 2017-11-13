@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="titlePage"></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<!-- Bootstrap -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+	<script src="../../bootstrap-4.0.0-beta/dist/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../bootstrap-4.0.0-beta/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../bootstrap-4.0.0-beta/dist/css/bootstrap-reboot.css">
+	
+	<!-- Icônes -->
+	<link rel="stylesheet" type="text/css" href="../../font-awesome-4.7.0/css/font-awesome.css">
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../../css/accueil.css">
+
+	<!-- JS -->
+	<script src="../../js/fct.js"></script>
+	<script src="../../js/onClick.js"></script>
+	<script src="../../js/onHover.js"></script>
+	<script src="../../js/onLoad.js"></script>
+</head>
+<body onload="init('accueil.html')">
+
+	<header>
+		<!-- Barre de navigation -->
+		<nav class="navbar navbar-expand-lg" style="padding: 0px 5px 0px 5px;background-color: #A9A9A9">
+			<a class="navbar-brand" href="#" id="home" title="accueil"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<!-- <li class="nav-item">
+						<a class="nav-link" id="link" href="#">Link</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="#">Disabled</a>
+					</li> -->
+				</ul>
+				<ul class="navbar-nav my-2 my-lg-0">
+					<li class="nav-item lang" style="padding: .5rem">
+						<a href="#" alt="Langage" id="en"><img class="rounded" style="width:50px" src="../../img/en.jpg" title="En"/></a>
+					</li>
+					<li class="nav-item" style="padding: .5rem 0 .5rem 0">|</li>
+					<li class="nav-item lang" style="padding: .5rem">
+						<a href="#" alt="Langage" id="fr"><img class="rounded" style="width:50px"  src="../../img/fr.png" title="Fr"/></a>
+					</li>
+					<li class="nav-item dropdown" id="drpdwnHover">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" title="Utilitaire" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-cog" aria-hidden="true"></i>
+						</a>
+						<div class="dropdown-menu" id="drpdwnTgt" style="right: 0;left: auto;margin: 0;padding:0;" aria-labelledby="navbarDropdownMenuLink">
+							<div class="container" style="padding: 0px">
+								<div class="col-6 hover" style="float: left;">
+									<a href="#" id="gmail" title="Gmail"><img alt="logo_gmail" src="../../img/google-product-logos/logo_gmail_64px.png" style="max-width: 50px"></a>
+								</div>
+								<div class="col-6 hover" style="float: left;">
+									<a href="#" id="drive" title="Drive"><img alt="logo_drive" src="../../img/google-product-logos/logo_drive_64px.png" style="max-width: 50px"></a>
+								</div>
+							</div>
+							<div class="dropdown-divider" style="width: 100%;margin:0"></div>
+							<div class="container" style="padding: 0px">
+								<div class="col-6 hover" style="float: left;">
+									<a href="#" title="Gmail"><img alt="logo_gmail" src="../../img/google-product-logos/logo_gmail_64px.png" style="max-width: 50px"></a>
+								</div>
+								<div class="col-6 hover" style="float: left;">
+									<a href="#" title="Drive"><img alt="logo_drive" src="../../img/google-product-logos/logo_drive_64px.png" style="max-width: 50px"></a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Body -->
+	<div class="container">
+		<div class="col-md-12">
+			<h1 class="text-center">Laurence Dog'Educ</h1>
+			<h3 class="text-center">Educatrice - Comportementaliste canin</h3>
+		</div>
+	</div>
+
+	<footer style="background-color: #A9A9A9;color:black;position: absolute;width: 100%;bottom: 0;">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2 class="text-center">Contact</h2>
+					<ul class="list-unstyled">
+						<li>06103432343</li>
+						<li>14 route du Marabout</li>
+						<li>57270, Richemont, FRANCE</li>
+					</ul>
+				</div>
+				<div class="col">
+					<h2 class="text-center">Suivez nous !</h2>
+					<ul class="list-inline text-center">
+						<li>
+							<a href="https://www.facebook.com/pages/Laurence-Dog-%C3%A9duc/1164692700328779?timeline_context_item_type=intro_card_work&amp;timeline_context_item_source=1105219965&amp;pnref=lhc" id="lienFb" target="_blank" title="Laurence DOG'EDUC">
+								<i class="fa fa-facebook-official fa-2x" aria-hidden="true" id="fb"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

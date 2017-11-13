@@ -3,6 +3,21 @@
 //----------------------------------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------------------------------
+// [clickLay*] Fonctions exécutées sur toutes les pages
+//
+// [...Home] : fonction permettant de retourner sur la page d'accueil
+//----------------------------------------------------------------------------------------------------
+
+function clickLayHome() {
+	// variables
+	var hme = $("#home");
+
+	hme.on('click', function(){
+		$(location).attr("href", "accueil-" + sessionStorage.langue + ".html");
+	});
+}
+
+//----------------------------------------------------------------------------------------------------
 // Fonction permettant permettant de gérer le clic des éléments de la page [accueil.html]
 //----------------------------------------------------------------------------------------------------
 
@@ -20,6 +35,56 @@ function clickAcc() {
 	drive.on('click', function(){
 		// ouverture d'un nouvel onglet contenant la page drive
 		window.open("https://drive.google.com/drive/u/1/my-drive");
+	});
+}
+
+//----------------------------------------------------------------------------------------------------
+// Fonction permettant permettant de gérer le clic des éléments de la page [contact.html]
+//----------------------------------------------------------------------------------------------------
+
+function clickCtc() {
+	// variables
+	var gmail = $("#gmail"), drive = $("#drive"), fm = $("#fmCtc");
+	
+	// Gmail
+	gmail.on('click', function(){
+		// ouverture d'un nouvel onglet contenant la page mail
+		window.open("https://mail.google.com/mail/u/1/#inbox");
+	});
+
+	// Drive
+	drive.on('click', function(){
+		// ouverture d'un nouvel onglet contenant la page drive
+		window.open("https://drive.google.com/drive/u/1/my-drive");
+	});
+
+	// Quand le formulaire est validé
+	fm.on('submit', function(e){
+
+		// on empêche la redirection
+		e.preventDefault();
+
+		// on récupère les données
+		var name = $("#nom").val(),
+		pname = $("#prenom").val(),
+		mail = $("#email").val(),
+		mess = $("#msg").val();
+
+		$.ajax({
+			url: '../../php/sendMail.php',
+			type: 'POST',
+			dataType: 'json',
+			data:{ email: mail, nom: name, prenom: pname, msg: mess},
+
+			success: function(html) {
+				console.log(html);
+			},
+
+			error: function(html) {
+				console.log(html);
+			}
+		});
+
 	});
 }
 
