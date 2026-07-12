@@ -6,35 +6,64 @@
     <meta name="theme-color" content="#4a90e2">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="To-do">
+    <meta name="apple-mobile-web-app-title" content="Mes Courses">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <link rel="stylesheet" href="style.css">
-    <title>Ma To-do</title>
+    <title>Mes Courses</title>
 </head>
 <body>
-    <header>
-        <h1>Ma To-do</h1>
-    </header>
 
-    <main>
-        <form id="task-form" autocomplete="off">
-            <input
-                type="text"
-                id="task-input"
-                placeholder="Nouvelle tâche..."
-                required
-                maxlength="200"
-                enterkeyhint="done">
-            <button type="submit" aria-label="Ajouter la tâche">+</button>
-        </form>
+    <!-- ===== Vue Accueil ===== -->
+    <section id="view-home" class="view active">
+        <header>
+            <h1>🛒 Mes courses</h1>
+        </header>
 
-        <ul id="task-list" aria-live="polite"></ul>
+        <main>
+            <div class="cart-block" id="cart-block">
+                <div class="cart-icon" aria-hidden="true">🛒</div>
+                <p class="cart-status" id="cart-status">Ton caddie est vide</p>
+            </div>
 
-        <p id="empty-state" hidden>Rien à faire. Profite ! 🌴</p>
-    </main>
+            <ul id="cart-list" aria-live="polite"></ul>
+        </main>
 
+        <button class="fab" id="btn-open-products" aria-label="Ajouter des produits">
+            + Ajouter des produits
+        </button>
+    </section>
+
+    <!-- ===== Vue Produits ===== -->
+    <section id="view-products" class="view">
+        <header class="header-with-back">
+            <button class="back" id="btn-back" aria-label="Retour">‹</button>
+            <h1>Choisir des produits</h1>
+        </header>
+
+        <main>
+            <div class="search-wrap">
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Rechercher un produit..."
+                    autocomplete="off"
+                    enterkeyhint="search">
+            </div>
+
+            <button id="custom-add" class="custom-add" hidden></button>
+
+            <div id="products-grid" class="products-grid"></div>
+
+            <p id="no-results" class="no-results" hidden>Aucun produit trouvé.</p>
+        </main>
+    </section>
+
+    <!-- ===== Toast ===== -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="products.js"></script>
     <script src="app.js"></script>
     <script>
         if ('serviceWorker' in navigator) {

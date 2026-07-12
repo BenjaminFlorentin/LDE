@@ -1,7 +1,7 @@
 {
-  "name": "Ma To-do",
-  "short_name": "To-do",
-  "description": "Une petite liste de tâches, installable sur ton téléphone.",
+  "name": "Mes Courses",
+  "short_name": "Courses",
+  "description": "Ta liste de courses installable sur ton téléphone.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
