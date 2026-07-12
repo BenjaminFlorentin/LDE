@@ -1,18 +1,28 @@
 // ============================================================
-// Ma To-do - logique de l'app
-// Stockage : localStorage (persistant, propre au navigateur)
+// Mes Courses - logique de l'app
 // ============================================================
 
-const STORAGE_KEY = 'todo.tasks.v1';
+const STORAGE_KEY = 'courses.cart.v1';
+const CUSTOM_EMOJI = '📌';
 
-const form = document.getElementById('task-form');
-const input = document.getElementById('task-input');
-const list = document.getElementById('task-list');
-const emptyState = document.getElementById('empty-state');
+// --- DOM refs ---
+const viewHome     = document.getElementById('view-home');
+const viewProducts = document.getElementById('view-products');
+const cartBlock    = document.getElementById('cart-block');
+const cartStatus   = document.getElementById('cart-status');
+const cartList     = document.getElementById('cart-list');
+const btnOpen      = document.getElementById('btn-open-products');
+const btnBack      = document.getElementById('btn-back');
+const searchInput  = document.getElementById('search-input');
+const productsGrid = document.getElementById('products-grid');
+const customAdd    = document.getElementById('custom-add');
+const noResults    = document.getElementById('no-results');
+const toast        = document.getElementById('toast');
 
-let tasks = loadTasks();
+// --- State ---
+let cart = loadCart();
 
-function loadTasks() {
+function loadCart() {
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
         return raw ? JSON.parse(raw) : [];
@@ -21,77 +31,181 @@ function loadTasks() {
     }
 }
 
-function saveTasks() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+function saveCart() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
 }
 
-function render() {
-    list.innerHTML = '';
+// Removes accents and lowercases — "Pêché" -> "peche"
+function normalize(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+}
 
-    if (tasks.length === 0) {
-        emptyState.hidden = false;
+// --- View switching ---
+function showView(name) {
+    viewHome.classList.toggle('active', name === 'home');
+    viewProducts.classList.toggle('active', name === 'products');
+    window.scrollTo(0, 0);
+    if (name === 'products') {
+        searchInput.value = '';
+        renderProducts('');
+        setTimeout(() => searchInput.focus(), 100);
+    } else {
+        renderCart();
+    }
+}
+
+// --- Cart operations ---
+function addProduct(product) {
+    if (cart.some(item => item.id === product.id)) {
+        showToast(`${product.emoji} Déjà dans ton caddie`);
         return;
     }
-    emptyState.hidden = true;
+    cart.push({
+        id: product.id,
+        name: product.name,
+        emoji: product.emoji,
+        done: false,
+        custom: !!product.custom,
+        addedAt: Date.now()
+    });
+    saveCart();
+    renderProducts(searchInput.value);
+    showToast(`${product.emoji} ${product.name} ajouté${product.name.endsWith('e') ? 'e' : ''}`);
+}
 
-    for (const task of tasks) {
+function addCustom(text) {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    const id = 'custom-' + normalize(trimmed).replace(/\s+/g, '-') + '-' + Date.now().toString(36);
+    addProduct({ id, name: trimmed, emoji: CUSTOM_EMOJI, custom: true });
+    searchInput.value = '';
+    renderProducts('');
+}
+
+function toggleItem(id) {
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    item.done = !item.done;
+    saveCart();
+    renderCart();
+}
+
+function removeItem(id) {
+    cart = cart.filter(i => i.id !== id);
+    saveCart();
+    renderCart();
+}
+
+// --- Rendering ---
+function renderCart() {
+    // Cart block state
+    const count = cart.length;
+    cartBlock.classList.toggle('empty', count === 0);
+    if (count === 0) {
+        cartStatus.textContent = 'Ton caddie est vide';
+    } else {
+        cartStatus.textContent = `${count} article${count > 1 ? 's' : ''} dans ton caddie`;
+    }
+
+    // List
+    cartList.innerHTML = '';
+    for (const item of cart) {
         const li = document.createElement('li');
-        li.className = 'task' + (task.done ? ' done' : '');
-        li.dataset.id = task.id;
+        li.className = 'item' + (item.done ? ' done' : '');
 
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.checked = task.done;
-        checkbox.setAttribute('aria-label', 'Marquer comme fait');
-        checkbox.addEventListener('change', () => toggleTask(task.id));
+        checkbox.checked = item.done;
+        checkbox.setAttribute('aria-label', 'Marquer comme pris');
+        checkbox.addEventListener('change', () => toggleItem(item.id));
 
-        const text = document.createElement('span');
-        text.className = 'text';
-        text.textContent = task.text;
+        const emoji = document.createElement('span');
+        emoji.className = 'emoji';
+        emoji.textContent = item.emoji || CUSTOM_EMOJI;
+
+        const name = document.createElement('span');
+        name.className = 'name';
+        name.textContent = item.name;
 
         const del = document.createElement('button');
         del.className = 'delete';
-        del.setAttribute('aria-label', 'Supprimer la tâche');
+        del.setAttribute('aria-label', 'Supprimer l\'article');
         del.textContent = '×';
-        del.addEventListener('click', () => deleteTask(task.id));
+        del.addEventListener('click', () => removeItem(item.id));
 
-        li.append(checkbox, text, del);
-        list.append(li);
+        li.append(checkbox, emoji, name, del);
+        cartList.append(li);
     }
 }
 
-function addTask(text) {
-    const trimmed = text.trim();
-    if (!trimmed) return;
-    tasks.unshift({
-        id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
-        text: trimmed,
-        done: false,
-        createdAt: Date.now()
-    });
-    saveTasks();
-    render();
+function renderProducts(query) {
+    const q = normalize(query);
+    const inCartIds = new Set(cart.map(i => i.id));
+
+    // Filter catalog
+    const matches = q
+        ? PRODUCTS.filter(p => normalize(p.name).includes(q))
+        : PRODUCTS.slice();
+
+    // Custom-add button: show only when query is non-empty and no exact match
+    const exactMatch = q && PRODUCTS.some(p => normalize(p.name) === q);
+    if (q && !exactMatch) {
+        customAdd.textContent = `+ Ajouter "${query.trim()}" à ma liste`;
+        customAdd.hidden = false;
+    } else {
+        customAdd.hidden = true;
+    }
+
+    // Grid
+    productsGrid.innerHTML = '';
+    for (const p of matches) {
+        const btn = document.createElement('button');
+        btn.className = 'product-card' + (inCartIds.has(p.id) ? ' in-cart' : '');
+        btn.setAttribute('aria-label', `Ajouter ${p.name}`);
+
+        const em = document.createElement('span');
+        em.className = 'emoji';
+        em.textContent = p.emoji;
+
+        const nm = document.createElement('span');
+        nm.className = 'name';
+        nm.textContent = p.name;
+
+        btn.append(em, nm);
+        btn.addEventListener('click', () => addProduct(p));
+        productsGrid.append(btn);
+    }
+
+    // Show "no results" only if query set, no matches, and no custom-add fallback either
+    noResults.hidden = !(q && matches.length === 0 && customAdd.hidden);
 }
 
-function toggleTask(id) {
-    const task = tasks.find(t => t.id === id);
-    if (!task) return;
-    task.done = !task.done;
-    saveTasks();
-    render();
+// --- Toast ---
+let toastTimer;
+function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 1500);
 }
 
-function deleteTask(id) {
-    tasks = tasks.filter(t => t.id !== id);
-    saveTasks();
-    render();
-}
+// --- Event wiring ---
+btnOpen.addEventListener('click', () => showView('products'));
+btnBack.addEventListener('click', () => showView('home'));
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    addTask(input.value);
-    input.value = '';
-    input.focus();
+searchInput.addEventListener('input', (e) => renderProducts(e.target.value));
+searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        const q = searchInput.value.trim();
+        if (!q) return;
+        const exact = PRODUCTS.find(p => normalize(p.name) === normalize(q));
+        if (exact) addProduct(exact);
+        else addCustom(q);
+    }
 });
 
-render();
+customAdd.addEventListener('click', () => addCustom(searchInput.value));
+
+// --- Initial render ---
+renderCart();

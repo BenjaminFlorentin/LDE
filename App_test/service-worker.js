@@ -6,14 +6,15 @@
 // les téléphones qui ont déjà installé l'app.
 // ============================================================
 
-const CACHE_VERSION = 'v1';
-const CACHE_NAME = `todo-${CACHE_VERSION}`;
+const CACHE_VERSION = 'v2';
+const CACHE_NAME = `courses-${CACHE_VERSION}`;
 
 const ASSETS = [
     './',
     './index.html',
     './style.css',
     './app.js',
+    './products.js',
     './manifest.json',
     './icons/icon-192.png',
     './icons/icon-512.png'
